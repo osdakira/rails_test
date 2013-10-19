@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+2.times do | i |
+  parent = Parent.create name: "Parent#{i}"
+  5.times do | j |
+    Child.create name: "Child#{i * j}", parent: parent
+  end
+end

@@ -1,14 +1,12 @@
-class Child < ActiveRecord::Base
-  belongs_to :parent
-
+module CachedModel
   class << self
     @@process_cache = {}
 
     def find_by_sql(sql, binds = [])
       arel = sanitize_sql(sql)
-      binded_sql = connection.to_sql(arel, binds)
+      cloned_binds = binds.clone
+      binded_sql = connection.to_sql(arel, cloned_binds)
       cache_key = "#{cache_key_prefix}/#{binded_sql}"
-      puts cache_key
       @@process_cache.fetch cache_key do
         instance = super(sql, binds)
         @@process_cache[cache_key] = instance
