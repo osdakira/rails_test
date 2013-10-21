@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131018072153) do
+ActiveRecord::Schema.define(version: 20131021140532) do
 
   create_table "children", force: true do |t|
     t.string   "name"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 20131018072153) do
   end
 
   add_index "children", ["parent_id"], name: "index_children_on_parent_id"
+
+  create_table "column_samples", force: true do |t|
+    t.integer  "c1"
+    t.integer  "c2"
+    t.integer  "c3"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "parents", force: true do |t|
     t.string   "name"
