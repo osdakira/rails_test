@@ -1,4 +1,6 @@
 Test1::Application.routes.draw do
+  resources :column_samples
+
   resources :children
 
   resources :parents

@@ -1,0 +1,31 @@
+<h1>Listing column_samples</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>C1</th>
+      <th>C2</th>
+      <th>C3</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @column_samples.each do |column_sample| %>
+    <tr>
+      <td><%= column_sample.c1 %></td>
+      <td><%= column_sample.c2 %></td>
+      <td><%= column_sample.c3 %></td>
+      <td><%= link_to 'Show', column_sample %></td>
+      <td><%= link_to 'Edit', edit_column_sample_path(column_sample) %></td>
+      <td><%= link_to 'Destroy', column_sample, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Column sample', new_column_sample_path %>
